@@ -2,5 +2,24 @@
   "dependencies": {
     "express": "^4.17.1",
     "nodemon": "^2.0.7"
-  }
+  },
+  "name": "test",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js",
+    "start":"nodemon test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maaz1996/test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maaz1996/test/issues"
+  },
+  "homepage": "https://github.com/maaz1996/test#readme"
 }
