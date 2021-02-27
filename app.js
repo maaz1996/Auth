@@ -1,6 +1,6 @@
 const express=require("express");
 const app= express();
-const config= require ("./")
+const config= require ("./config")
 // app.use("/api/v1");
 
 app.listen(config["port"],()=>{
