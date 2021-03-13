@@ -1,25 +1,19 @@
 const express=require("express");
 const app= express();
 const config= require ("./config")
- app.use("/",(req,res,next)=>{
+ app.get("/",(req,res,next)=>{
      res.status(200).send({
          status:"200",
-         message: "Hello World"
+         message: "Hello World, Basics"
      })
  }
  );
-// app.use("/api/v1", authroutes)
-// const authroutes=require("../routes/authRoutes")
 
-//  // 	(req,res,next)=>{
-//  //     res.status(200).send({
-//  //         status:"200",
-//  //         message: "API Req ok"
-//  //     })
-//  // }
-//  // );
+const userRoute = require("./routes/authRoute");
+app.use("/api/v1/auth", userRoute);
 
 app.use
 app.listen(config["port"],()=>{
     console.log(`Server started on port :${config["port"]}`)
 })
+	

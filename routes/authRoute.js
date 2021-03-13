@@ -6,16 +6,11 @@ const UserController = require('../controller/authController');
 // Router Navigations
 router
     .route('/signup')
-    .post(signupValidateBody(signupSchemas.authSchema), UserController.signup);
+    .post((req,res,next)=>UserController.signup(req,res,next));
 
 router
     .route('/signin')
-    .post(
-        signinValidateBody(signinSchemas.authSchema),
-        passport.authenticate('user-local', {session: false}),
-        UserController.signin
-    );
-
+    .post((req,res,next)=>UserController.signin(req,res,next));
 
 module.exports = router;
 
