@@ -3,16 +3,31 @@ const userAuthSerivce = require("../services/authService.js")();
 module.exports = {
 
   signup: async (req, res,next) => {
-  	const response = await userAuthSerivce.signup();
-  	if (response == "OK") {
+  	  	const payload=req.body	
+  	const response = await userAuthSerivce.signup({payload});
+  	// console.log(response)
+  	if (response == "error") {
         res.status(200).send({
           status: "200",
-          result: "Bahut Badhiya, Signup hoga tumhare"
+          result: "Error while fetcing"
         });
-      } else {
+      } 
+if (response == "OK") {
+        res.status(200).send({
+          status: "200",
+          result: "User Created"
+        });
+      } 
+      if (response == "error2") {
+        res.status(200).send({
+          status: "200",
+          result: "Error while creating user"
+        });
+      } 
+      if(response=="result"){
         res.status(200).json({
-          status: 200,
-          result: "Error"
+          status: 400,
+          result: "User Exists"
         });
       }
     
@@ -26,7 +41,7 @@ signin: async (req, res,next) => {
         });
       } else {
         res.status(200).json({
-          status: 200,
+          status: 400,
           result: "Error"
         });
       }
